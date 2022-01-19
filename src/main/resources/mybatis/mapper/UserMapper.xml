@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xch.boots.mapper.user.UserMapper">
+
+    <select id="getLogin" resultType="User">
+        select * from smbms_user where userCode=#{userCode} and userPassword=#{userPassword}
+    </select>
+
+    <select id="getUserById" resultType="User">
+        select * from smbms_user where id=#{id}
+    </select>
+
+    <select id="getUserByName" resultType="User">
+        select * from smbms_user
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="userName!=null">
+                userName like CONCAT('%',#{userName},'%')
+            </if>
+        </trim>
+    </select>
+
+    <select id="selectUserByPage" resultType="User">
+        select * from smbms_user
+    </select>
+
+    <delete id="delUserById" parameterType="User">
+        delete from smbms_user where id=#{id}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        update smbms_user
+        <set>
+            <if test="userName!=null and userName!=''">
+                userName=#{userName},
+            </if>
+            <if test="gender !=null">
+                gender=#{gender},
+            </if>
+            <if test="birthday !=null">
+                birthday=#{birthday},
+            </if>
+            <if test="address !=null and address!=''">
+                address=#{address},
+            </if>
+            <if test="userRole !=null and userRole!=''">
+                userRole=#{userRole},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <insert id="addUser" parameterType="user">
+        insert into smbms_user (userCode,userName,userPassword,gender,birthday,phone,userRole) values
+                        (#{userCode},#{userName},#{userPassword},#{gender},#{birthday},#{phone},#{userRole})
+    </insert>
+</mapper>
