@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<form>
+    <input  type="text" id="userMail"  name="userMail" placeholder="请输入邮箱号" >
+    <input type="button"   id="btnSend"  value="验证码" />
+</form>
+
+<script type="text/javascript">
+    $("#btnSend").click(function() {
+        var btnSend=document.getElementById("btnSend");
+        var userMail=document.getElementById("userMail");
+
+        $.ajax({
+            url:'/user/getEmailVerify',    //ajax提交的路径
+            data:{userMail:userMail.value},//要穿的值和获取输入的邮箱号
+            success:function(data){        //返回的date，发送邮件成功返回6为随机数，否则返回“发送失败”
+                if(data.length==6){
+                    alert("发送成功");
+                }else{
+                    alert("发送失败");
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
