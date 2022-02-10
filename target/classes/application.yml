@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/blind-box?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/winterproject?useUnicode=true&characterEncoding=utf8
     userName: root
     password: 123
     driver-class-name: com.mysql.jdbc.Driver

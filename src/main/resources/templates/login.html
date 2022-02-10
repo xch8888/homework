@@ -1,108 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>登录界面</title>
-    <style>
-        html,body{
-            height: 100%;
-        }
-        body{
-            background: #006666;
-        }
-        h1{
-            color: #FFF;
-            text-align: center;
-        }
-        .container{
-            margin: 100px auto;
-            width: 30%;
-        }
-        form{
-            background: #FFF;
-            height: 300px;
-            width: 100%;
-            border-radius: 10px;
-            position: relative;
-        }
-        label{
-            color: #000;
-            font-weight: bold;
-            font-size: 20px;
-            margin-left: 40px;
-        }
-        input{
-            text-align: left;
-            margin: 10px;
-        }
-        .input{
-            width: 80%;
-            height: 35px;
-            margin-left: 40px;
-        }
-        .checkbox{
-            margin-left: 30px;
-        }
-        a{
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .submit{
-            display: inline-block;
-            margin-top: 0;
-            margin-left:145px;
-            background: #000;
-            border: none;
-            color: #FFF;
-            height: 35px;
-            width: 100px;
-            text-align: center;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .left{
-            margin: 20px;
-        }
-        .right{
-            position: absolute;
-            right: 20px;
-        }
+    <title>Title</title>
+    <style type="text/css">
+        .box{width: 907px;margin: 0 auto;}
+        .yhdl{border:1px solid #000; height:500px;width:400px}
+        .no1{transform:translate(80px,80px)}
+        .no2{transform:translate(70px)}
+        .anniu1{transform:translate(50px)}
+        .anniu2{transform:translate(100px)}
+        .yhdl,.tupian{display: inline-block;vertical-align: top;}
+        .dibu{transform:translate(50%,30%)}
+        .dibu{font-size: 20px}
     </style>
 </head>
-
 <body>
-<div class="container">
-    <h1>用户登录</h1>
-    <form action="main.html" method="post" th:action="@{/login}">
-        <br>
-        <label for="username">用户名</label><br>
-        <input type="text" name="userName" id="username" class="input" value="" placeholder="用户名"><br>
-        <label for="pwd">密码</label><br>
-        <input type="password" name="password" id="pwd" class="input" value="" placeholder="密码">
-        <div class="checkbox">
-            <input type="checkbox" name="">
-            <span>记住密码</span>
-        </div>
-        <button type="submit" class="submit" onclick="submits(this)">开始登录</button>
-        <br>
-        <a href="index.html" class="left">返回首页</a>
-        <a href="zhuce.html" class="right">注册账号</a>
-    </form>
-</div>
-<script>
-    function submits(btn){
-        var userName = document.getElementById("username").value;
-        var pwd = document.getElementById("pwd").value;
-        console.log(userName)
-        if (userName == "admin" && pwd == "admin") {
-            alert("用户名和密码正确，但是连接服务器失败！")
-        }
-        else {
-            alert("用户名或密码不正确！");
-        }
-    };
-</script>
-</body>
+<div class="box">
 
+    <div class="tupian">
+        <img src="/img/1.jpg" height="500" width="500"/>
+    <div class="yhdl">
+        <div class="no1">
+            <h1 class="no2">用户登录</h1>
+            <form action="main.html" method="post" th:action="@{/login}">
+                <label th:text="${msg}"></label><br/>
+                用 户 名:<input type="text" name="name" /><br/>
+                <br/>
+                密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:<input type="text" name="pwd" /><br/>
+                <br/>
+                <br/>
+                <input class="anniu1" id="tijiao" type="submit" name="提交" />
+                <a th:href="@{/zhuce}"><input class="anniu2" type="button" id="zhuce" name="注册" value="注册" /></a>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<div class="dibu">皓哥赞助</div>
+</body>
+<script>
+    // $("#tijao").click(function () {
+    //     var username=$(".name").val();
+    //     var password=$(".pwd").val();
+    //     $.ajax({
+    //         url : "/login",
+    //         type : "post",
+    //         data:{name:"username",pwd:"password"}
+    //     })
+    // })
+</script>
 </html>

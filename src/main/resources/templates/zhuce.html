@@ -2,139 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户注册界面</title>
-    <style>
-        body{
-            background: #159f9f;
-        }
-        .container{
-            margin: 0 auto;
-            width: 500px;
-        }
-        form{
-            width: 480px;
-            margin: 0 auto;
-            background: #FFF;
-            border-radius: 15px;
-            position: relative;
-        }
-        h1{
-            font-size: 28px;
-            text-align: center;
-            color: #FFF;
-        }
-        .p{
-            color: red;
-            margin-left: 33px;
-            display: inline-block;//不占单独一行的块级元素
-        }
-        label{
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .register{
-            height: 35px;
-            width: 300px;
-        }
-        .q{
-            color:red;
-            margin-left:17px;
-            display:inline-block;
-        }
-        .checkbox{
-            margin-left: 100px;
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-        }
-        .submit{
-            border-radius: 7px;
-            margin-left: 150px;
-            height: 35px;
-            width: 150px;
-            background-color: #000;
-            border: none;
-            display: block;
-            padding: 0;
-            color: #FFF;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        a{
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .left,.right{
-            position: absolute;
-            bottom: 20px;
-        }
-        .left{
-            left: 20px;
-        }
-        .right{
-            right: 20px;
-        }
-        #btnSend{
-            left: 130px;
-        }
+    <title>Title</title>
+    <style type="text/css">
+        .box{width: 937px;margin: 0 auto;}
+        .yhdl{border:1px solid #000; height:500px;width:430px}
+        .no1{transform:translate(80px,20px)}
+        .no2{transform:translate(70px)}
+        .anniu2{transform:translate(100px)}
+        .yhdl,.tupian{display: inline-block;vertical-align: top;}
+        #sp1{margin-right: 65px}
+        #sp2{margin-right: 65px}
+        #sp3{margin-right: 33px}
+        #sp4{margin-right: 17px}
+        #sp5{margin-right: 8px}
+        /*input{display: block;*/
+        /*margin-bottom: 1px}*/
     </style>
+    <script src="/js/jquery-1.12.4.js"></script>
 </head>
 <body>
-<div class="container">
-    <h1>新用户注册</h1>
-    <form>
-        <br>
-        <span class="p">*</span>
-        <label for="username">用户名</label>
-        <input type="text" name="" id="username" placeholder="" class="register"><br><br>
-        <span class="q">*</span>
-        <label for="pwd">登录密码</label>
-        <input type="password" name="" id="pwd" class="register"><br><br>
-        <span class="q">*</span>
-        <label for="c_pwd">确认密码</label>
-        <input type="password" name="" id="c_pwd" class="register"><br><br>
-        <span class="p">*</span>
-        <label for="userMail">邮箱</label>
-        <input type="text" name="userMail" id="userMail" class="register"><input type="button" id="btnSend"  value="发送" />
-        <br><br>
-        <span class="p">*</span>
-        <label for="verify">验证码</label>
-        <input type="text" id="verify" class="register" name=""><br><br>
-        <input type="checkbox" class="checkbox" name="">
-        <span style="font-size:15px">我已阅读并同意《用户注册协议》</span>
-        <br><br>
-        <input type="submit" name="" value="同意以上协议并注册" class="submit" onclick="register(this)"><br>
-        <a href="index.html" class="left">返回首页</a>
-        <a href="login.html" class="right">开始登录</a>
-    </form>
+<div class="box">
+    <div class="tupian">
+        <img src="img/1.jpg" height="500" width="500"/>
+    </div>
+    <div class="yhdl">
+        <div class="no1">
+            <h1 class="no2">邮箱注册</h1>
+            <form action="/register" method="post">
+                <p><span id="sp1">邮箱:</span><input type="text" id="ema" name="emas" placeholder="请输入邮箱" /><p/>
+                <p><span id="sp2">密码:</span><input type="text" name="pwd" placeholder="请输入密码" /><p/>
+                <p><span id="sp3">确认密码:</span><input type="text" name="pwd2" placeholder="确认密码" /><p/>
+                <p><span id="sp4">邮箱验证码:</span><input id="emas" type="text" name="ema" placeholder="验证码" />
+                <input id="fs" type="button" name="fs" value="发送" /><p/>
+                <p><span id="sp5">邀请码(可选):</span><input type="text" name="yqm" placeholder="邀请码(可选)" /><p/>
+                <input class="anniu2" type="submit" id="zhuce" name="ema" value="注册" style="width:150px;height:35px" disabled="true"/><br/><br/>
+                <input type="radio" id="radios"  name="ty"/><span class="tk">同意所有条款</span>
+            </form>
+        </div>
+    </div>
 </div>
+
 <script>
-    var checkbox=document.getElementsByClassName('checkbox');
-    function register(btn){
-        if(checkbox[0].checked==true){
-            alert("注册成功！");
+    var ty = $("input[name=ty]:checked").val();
+    $("#radios").click(function (){
+        if (ty==true){
+            $("#zhuce").attr("disabled",true);
+        }else {
+            $("#zhuce").attr("disabled",false);
         }
-        else{
-            alert("请先阅读并同意《用户注册协议》！")
-        }
-    }
+    })
 
-    $("#btnSend").click(function() {
-        var btnSend=document.getElementById("btnSend");
-        var userMail=document.getElementById("userMail");
-
+    $("#fs").click(function (){
+        var ema=$("#ema").val();
         $.ajax({
-            url:'/user/getEmailVerify',    //ajax提交的路径
-            data:{userMail:userMail.value},//要穿的值和获取输入的邮箱号
-            success:function(data){        //返回的date，发送邮件成功返回6为随机数，否则返回“发送失败”
-                if(data.length==6){
-                    alert("发送成功");
-                }else{
-                    alert("发送失败");
-                }
+            "url": "/emailyz",
+            "type": "POST",
+            "data":{"ema":ema},
+            "dataType": "json",
+            "success": function(res) {
+                alert("发送成功,请注意接收")
+                alert(ema+"====")
+            },
+            "error": function() {
+                alert("验证码发送失败");
+                alert(ema+"====")
             }
-        });
-    });
+        })
+    })
 </script>
 </body>
 </html>
