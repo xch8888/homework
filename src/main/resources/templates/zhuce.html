@@ -30,8 +30,8 @@
             <h1 class="no2">邮箱注册</h1>
             <form action="/register" method="post">
                 <p><span id="sp1">邮箱:</span><input type="text" id="ema" name="emas" placeholder="请输入邮箱" /><p/>
-                <p><span id="sp2">密码:</span><input type="text" name="pwd" placeholder="请输入密码" /><p/>
-                <p><span id="sp3">确认密码:</span><input type="text" name="pwd2" placeholder="确认密码" /><p/>
+                <p><span id="sp2">密码:</span><input type="password" name="pwd" placeholder="请输入密码" /><p/>
+                <p><span id="sp3">确认密码:</span><input type="password" name="pwd2" placeholder="确认密码" /><p/>
                 <p><span id="sp4">邮箱验证码:</span><input id="emas" type="text" name="ema" placeholder="验证码" />
                 <input id="fs" type="button" name="fs" value="发送" /><p/>
                 <p><span id="sp5">邀请码(可选):</span><input type="text" name="yqm" placeholder="邀请码(可选)" /><p/>
@@ -47,6 +47,7 @@
     $("#radios").click(function (){
         if (ty==true){
             $("#zhuce").attr("disabled",true);
+            alert("注册成功");
         }else {
             $("#zhuce").attr("disabled",false);
         }
