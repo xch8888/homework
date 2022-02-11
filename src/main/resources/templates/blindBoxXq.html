@@ -3,13 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
 </head>
 <body>
+<header id="site-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <figure id="site-logo">
+                    <a href="index.html"><img src="/img/logo.png" height="100px" alt="Logo"></a>
+                </figure>
+            </div>
+            <div class="col-md-6 col-sm-8">
+                <nav id="site-nav" class="nav navbar-default">
+                    <ul class="nav navbar-nav">
+                        <li><a th:href="@{/lunbotu}">首页</a></li>
+                        <li><a th:href="@{/blindBox}">拼图</a></li>
+                        <li><a th:href="@{/blindBoxXq}">盲盒</a></li>
+                        <li>
+                            <a href="#">个人中心</a>
+                            <ul>
+                                <li><a href="#">个人信息</a></li>
+                                <li><a href="#">退出登陆</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <img src=""/>
+        </div>
+    </div>
+</header>
 <img src="/img/0b.jpg" height="200px" width="300px">
 <h1>标题:xxxx</h1>
 <h2>作者:xxxx</h2>
 <h2>图片介绍:xxxxxxxxxxxx</h2>
 <h2>盲盒数量:20/100</h2>
 <h2>单个盲盒积分:5</h2>
+<a href="#top" id="scroll-top"><i class="fa fa-angle-up"></i></a>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/theme.js"></script>
 </body>
 </html>

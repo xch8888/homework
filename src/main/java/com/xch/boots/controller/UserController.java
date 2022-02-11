@@ -47,7 +47,7 @@ public class UserController {
     @GetMapping("/main.html")
     public String toMain(HttpSession session,Model model){
         if (session.getAttribute("loginUser")!=null){
-            return "main";
+            return "lunbotu";
         }else {
             model.addAttribute("msg","请先登入");
             return "login";
@@ -69,14 +69,14 @@ public class UserController {
                 email.setHostName("smtp.qq.com");
                 email.setCharset("utf-8");
                 email.addTo(ema);
-                email.setFrom("771219879@qq.com", "tmh");
+                email.setFrom("771219879@qq.com", "xch");
                 email.setAuthentication("771219879@qq.com", "yivguwohkzrubegj");
                 email.setSubject("集齐拼图皓哥赞助活动验证码");
                 String yzm = yzm();
                 session.setAttribute("getema", ema);
                 session.setAttribute("yzm", yzm);
                 session.setAttribute("names",yzm());
-                email.setMsg("随机验证码:" + yzm+"=============亲爱的用户这是您的用户名:"+
+                email.setMsg("随机验证码:" + yzm+"=============亲爱的用户这是您的验证码:"+
                         session.getAttribute("names")+
                         "(请记住你的用户名,用于登录)");
                 email.send();
@@ -105,7 +105,6 @@ public class UserController {
         return str;
     }
 
-    @ResponseBody
     @RequestMapping("/register")
     public String register(@RequestParam("pwd") String pwd, @RequestParam("pwd2") String pwd2,
                            @RequestParam("yqm") String yqm, User user, HttpSession session){
@@ -119,7 +118,7 @@ public class UserController {
             userService.register(user);
             return "login";
         }else {
-            return flag="注册失败";
+            return "zhuce";
         }
     }
 

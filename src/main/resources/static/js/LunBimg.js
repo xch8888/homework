@@ -65,7 +65,7 @@ function showTime()
 {
     time = setInterval(function () {
         i++;
-        if (i == 3) {
+        if (i == 4) {
             //只有6张图片，所以i不能超过6，如果i等于6时，我们就让它等于第一张
             i = 0;
         }

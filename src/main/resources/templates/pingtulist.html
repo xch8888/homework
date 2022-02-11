@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
     <style>
         .tupian01{
             border:1px solid #000; width:300px;height: 400px;
@@ -26,33 +28,60 @@
     </style>
 </head>
 <body>
-<div class="xuanze">
-    <a><span style="font-size: 20px">首页</span></a>&nbsp;&nbsp;<a style="font-size: 20px"><span>拼图</span></a>
-    <a><span style="font-size: 20px">盲盒</span></a>&nbsp;&nbsp;<a style="font-size: 20px"><span>个人中心</span></a>
-</div>
+<header id="site-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <figure id="site-logo">
+                    <a href="index.html"><img src="/img/logo.png" height="100px" alt="Logo"></a>
+                </figure>
+            </div>
+            <div class="col-md-6 col-sm-8">
+                <nav id="site-nav" class="nav navbar-default">
+                    <ul class="nav navbar-nav">
+                        <li><a th:href="@{/lunbotu}">首页</a></li>
+                        <li><a th:href="@{/blindBox}">拼图</a></li>
+                        <li><a th:href="@{/blindBoxXq}">盲盒</a></li>
+                        <li>
+                            <a href="#">个人中心</a>
+                            <ul>
+                                <li><a href="#">个人信息</a></li>
+                                <li><a href="#">退出登陆</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <img src=""/>
+        </div>
+    </div>
+</header>
 <div class="anxiu1">
     <a><span>正在进行</span></a>&nbsp;&nbsp;<a><span>已完成</span></a>
 </div>
 <div class="tupian01">
-    <img src="/img/0a.jpg" height="200px" width="300px">
+    <img src="/img/1.png" height="200px" width="300px">
     <h3>梦中的婚礼</h3>
     <p>介绍:拥抱,湖面,夕阳,婚纱,双人</p>
     <span>总份数:5</span>&nbsp;&nbsp;<span>格数:3×3</span>&nbsp;&nbsp;<span>已完成:0</span><br/><br/>
     <span>奖品:500现金</span> &nbsp;&nbsp;<span>开始时间:2022-1-23</span>
 </div>
 <div class="tupian02">
-    <img src="/img/0b.jpg" height="200px" width="300px">
+    <img src="/img/2.png" height="200px" width="300px">
     <h3>他好像条狗啊</h3>
     <p>介绍:来自大话西游也是世间爱情缩影</p>
     <span>总份数:5</span>&nbsp;&nbsp;<span>格数:3×3</span>&nbsp;&nbsp;<span>已完成:0</span><br/><br/>
     <span>奖品:1000现金</span> &nbsp;&nbsp;<span>开始时间:2022-1-23</span>
 </div>
 <div class="tupian03">
-    <img src="/img/0c.jpg" height="200px" width="300px">
+    <img src="/img/3.png" height="200px" width="300px">
     <h3>意中人</h3>
     <p>介绍:猜中了开头,却没想到结尾</p>
     <span>总份数:3</span>&nbsp;&nbsp;<span>格数:3×3</span>&nbsp;&nbsp;<span>已完成:0</span><br/><br/>
     <span>奖品:1000现金</span> &nbsp;&nbsp;<span>开始时间:2022-1-23</span>
 </div>
+<a href="#top" id="scroll-top"><i class="fa fa-angle-up"></i></a>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/theme.js"></script>
 </body>
 </html>

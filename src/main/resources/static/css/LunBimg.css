@@ -5,8 +5,7 @@
 
 .swapImg {
     position:absolute;
-    margin-left:5cm;
-
+    margin-left:350px;
 }
 
 .btn {
@@ -47,4 +46,9 @@
 }
 .bg {
     background:#00ff21;
+}
+
+#hj1,#hj2,#hj3{
+    margin-left: 160px;
+    padding-left: 25px;
 }
